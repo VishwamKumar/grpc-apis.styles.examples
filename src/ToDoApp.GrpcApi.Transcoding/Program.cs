@@ -1,7 +1,5 @@
 
-
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 builder.Services.AddGrpc()
                 .AddJsonTranscoding();
@@ -9,7 +7,11 @@ builder.Services.AddGrpcReflection(); //Helps Postman to find services
 builder.Services.AddGrpcSwagger();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection")));
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(cfg =>
+{
+    cfg.AddMaps(AppDomain.CurrentDomain.GetAssemblies());
+});
+
 builder.Services.AddScoped<ITodoService, ToDoService>();
 builder.Services.AddLogging();
 

@@ -1,7 +1,5 @@
 ﻿
-
-
-namespace ToDoApp.GrpcApi.Transcoding;
+namespace ToDoApp.GrpcApi.Transcoding.Profiles;
 
 public class ProjectProfile:Profile
 {

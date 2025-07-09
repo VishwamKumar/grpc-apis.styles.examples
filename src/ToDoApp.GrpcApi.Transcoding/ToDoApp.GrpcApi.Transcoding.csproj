@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<Authors>Vishwa Kumar</Authors>
+	<Company>Vishwam</Company>
+	<Product>ToDoApp</Product>
+  </PropertyGroup>
+  
+
+  <ItemGroup>
+	<Protobuf Include="Protos\todo.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.71.0" />
+    <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.71.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="9.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="0.9.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ToDoApp.Data.Sqlite\ToDoApp.Data.Sqlite.csproj" />
+  </ItemGroup>
+
+</Project>
